@@ -1,0 +1,22 @@
+{
+    "rota_id01":{
+        "rota": "São paulo -> Porto Alegre",
+        "custo": "392932",
+        "itens": {
+            "celular": "01",
+            "televisão": "02"
+        }
+        
+
+    },
+    "rota_id02":{
+        "rota": "Salvador -> Bahia",
+        "custo": "392932"
+        
+    },
+    "rota_id03":{
+        "rota": "Maranhão-> Manaus",
+        "custo": "392932"
+    }
+
+}

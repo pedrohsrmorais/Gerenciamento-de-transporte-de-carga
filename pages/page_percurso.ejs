@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>percurso</title>
+</head>
+
+<body>
+    <div class="conteiner">
+        <h1> Rotas: </h1> 
+        <% if ( !(typeof rotas==="undefined" ) ) { %>
+
+            <% for (let x=0; x < rotas.length; x++) { %>
+
+                <h2>Rota partindo de <%= rotas[x][0] %> até <%= rotas[x][1] %>
+                            <% if ( id_percurso=="novo_percurso" ){ %>
+
+                </h2> <a class="link" href="/rota/<%= x %>/percurso"> VER ROTA </a> <br>
+
+                <% } else { %> <br><br><a class="link" href="/rota/<%= x %>/<%=id_percurso%>"> VER ROTA </a> <br>
+                    <% }} %>
+
+
+                        <h3>Custo total do percurso é de R$ <%= preços_total %> reais, e percore a distancia total de
+                                <%= distancia_total %> km,
+                                    assim tendo o custo médio por km: <%= (preços_total / distancia_total) %><br> </h3>
+
+
+                        <% if ( id_percurso=="novo_percurso" ){ %>
+                            <br><a class="link" href="/req_carga-transporte"> Cadastrar nova rota partindo de <%= rotas[i][1] %> </a>
+
+                            <br>
+                            <br>
+
+
+                            <form action="" method="post">
+                                <input type="submit" name="buttonc" class="submit" value="Salvar Percurso">
+                            </form>
+
+                            <% } else {%> <br><a class="link" href="/dados"> Voltar </a>
+                                <% }} %>
+
+                                    <% if (typeof rotas==="undefined" ) { %>
+                                        <a class="link" href="/req_carga-transporte"> Cadastrar primeira rota </a>
+                                        <% } %>
+
+
+
+
+                                            <br><br> <a class="link" href="/"> Sair </a>
+    </div>
+</body>
+
+</html>

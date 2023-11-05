@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+</head>
+
+<body>
+    <% for (let x=0; x < percurso.length; x++) { %>
+
+        <h2> Percurso <%= (x + 1) %>: 
+        </h2> <a href="/percurso/<%= x %>"> VER PERCURSO </a> <br>
+        <% } %>
+        <a href="/"> Voltar </a>
+        
+</body>
+
+</html>

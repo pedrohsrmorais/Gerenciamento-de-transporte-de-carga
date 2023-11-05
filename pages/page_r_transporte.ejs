@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Dist_city </title>
+ 
+</head>
+
+<body>
+
+
+
+
+  <form action="" method="post">
+
+    <% if (typeof origem_anterior === "undefined") { %>
+
+      <label>Cidade de origem</label>
+      <input name="cidade1">
+    
+    <% } else { %>
+    
+      <%= origem_anterior %>
+    
+    <% } %>
+
+    <br>
+
+    <label>Cidade de destino</label>
+    <input name="cidade2">
+
+    <br>
+    <input type="submit" name="buttonc" class="submit">
+
+  </form>
+  <a class="buttoncs1" href="/">voltar</a>
+
+
+</body>
+
+</html>

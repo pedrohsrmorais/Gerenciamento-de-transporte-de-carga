@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rota</title>
+</head>
+
+<body>
+    <%  ///////////////////////////////////////////////////////////CASO SEJA A ROTA DE UM PERCURSO
+        if (user==1){ %>
+        <h1> Rota de <%= rotas[0] %> até <%= rotas[1] %>
+        </h1>
+
+
+        <h1> Custos </h1>
+
+        <h2> A frota de caminhões mais eficiente para o percurso selecionado foi de:</h2>
+
+
+        <ul>
+            <li>Caminhões grandes: <%= caminhao[0] %> , que custaram R$ <%= preços[0] %> Reais
+            </li>
+            <li>Caminhões médios: <%= caminhao[1] %> , que custaram R$ <%= preços[1] %> Reais
+            </li>
+            <li>Caminhões pequenos: <%= caminhao[2] %> , que custaram R$ <%= preços[2] %> Reais
+            </li>
+            <li> O custo TOTAL para realizar o transporte até essa rota foi de: R$ <%= preços[0] + preços[1] + preços[2]
+                    %>
+                    Reais</li>
+        </ul>
+
+        <h1>Logística:</h1>
+
+        <h2>
+            <%= caminhao[0] + caminhao[1] + caminhao[2] %> veículo(s) terão que percorrer uma distancia de: <%=
+                    distancia %>
+                    km. <br>
+                    os produtos selecionados a serem transportados de <%= rotas[0] %> até <%= rotas[1] %> irão gerar um peso total de: <%=
+                        peso %> kg <br> sendo esses produtos:
+        </h2>
+
+        <% for (let x=0; x < produto_t.length; x++) { %>
+            <% if (produto_q[x]> "0"){ %>
+                <label>
+                    <%= produto_t[x] %>: <%= produto_q[x] %>
+                </label> <br>
+
+                <% } %>
+
+
+
+                    <% } if (id_p == "percurso"){ %>
+                    
+                        <br>
+                        <a href="/percurso/novo_percurso"> VOLTAR </a> <br>
+                        <% } else {%> 
+                        <br> <a href="/percurso/<%= id_p%>"> VOLTAR </a> <br>
+
+                        <% }} %>
+
+
+
+                            
+                            <% ///////////////////////////////////////////////////CASO SEJA SOLICITAÇÃO SIMPLES
+                            if (user==0){ %>
+
+                                <h2>A distancia de <%= rotas[0] %> até <%= rotas[1] %> é de: <%= distancia %> km
+                                </h2> <br>
+                                <label> Os respectivos caminhões e custos para esse percurso seriam dê: </label>
+                                <br>
+                                <ul>
+                                    <li> Caminhão pequeno (uma tonelada): custo total seria de R$ <%= (distancia * 4.87)
+                                            %> reais</li>
+                                    <li> Caminhão médio (quatro toneladas): custo total seria de R$ <%= (distancia *
+                                            11.92) %> reais</li>
+                                    <li> Caminhão grande (dez toneladas): custo total seria de R$ <%= (distancia *
+                                            27.44) %> reais</li>
+                                </ul>
+
+                                <a href="/"> Sair</a>
+
+                                <% } %>
+
+
+
+
+
+
+
+</body>
+
+</html>

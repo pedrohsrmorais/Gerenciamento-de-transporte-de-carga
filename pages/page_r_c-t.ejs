@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisição</title>
+    <link rel="stylesheet" href="/public_css/public_r_c-t.css">
+</head>
+
+<body>
+    <form action="" method="post">
+        <h1>Requisição de carga e transporte:</h1>
+
+
+        <% if (chave==0) { %>
+            <script> alert("Cidade(s) não encontrada(s), verifique o manual e tente novamente.") </script>
+            <% } %>
+
+                <% if (typeof nova_origem==="undefined" ) { %>
+
+                    <label>Cidade de origem</label>
+                    <input name="cidade1" class="cidade">
+
+                    <% } else { %>
+
+                        <%= nova_origem %>
+
+                            <% } %>
+
+                                <br>
+
+                                <label>Cidade de destino</label>
+                                <input name="cidade2" class="cidade">
+
+                                <br><br>
+                                <% /////////////////////////////////////////VINDO DO PERCURSO %>
+                                    <% if (user==1) { %>
+
+                                        <% if (!(typeof nova_origem==="undefined" )) { %>
+                                            <label> Caso não haja mudança na carga, cliquem em continuar. Caso tenha,
+                                                indique a quantidade de produtos atualizada <br>
+                                                a ser transportada até o novo destino.
+                                            </label>
+                                            <% } %>
+                                                <br>
+
+                                                <% for (let x=0; x < produto_t.length; x++) { %>
+                                                    <label>
+                                                        <%= produto_t[x] %>
+                                                    </label>
+                                                    <input type="number" name="<%= produto_t[x] %>" min="0" max="2000"
+                                                        class='produtos' value="<%= parseFloat(produto_q[x]) %>"> <br>
+
+
+                                                    <% } %>
+
+
+
+                                                        <br><br>
+                                                        <input type="submit" name="buttonc" class="submit"> <br><br>
+                                                        <br>
+                                                        <a href="/percurso/novo_percurso"> Voltar </a>
+                                                        <script src="/public_js/public_r_c-t.js"></script>
+
+
+                                                        <% } %>
+                                                            <% /////////////////////////////////////////VINDO DA MAIN %>
+
+                                                                <% if (user==0){ %>
+
+                                                                    <br>
+                                                                    <input type="submit" name="buttonc" class="submit">
+                                                                    <br><br>
+                                                                    <a href="/"> Voltar á página inicial </a>
+                                                                    <% } %>
+
+                                                                        <br><br>
+
+    </form>
+
+</body>
+
+</html>
